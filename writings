@@ -1,0 +1,7 @@
+#! /bin/bash
+# displays all of the writings in Dropbox's writing dir
+cur=$(pwd)
+cd ~/Dropbox/Writings/
+bomRemove *
+tail -n +1 *.txt | less
+cd $cur

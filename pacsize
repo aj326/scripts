@@ -1,0 +1,6 @@
+#!/bin/bash
+# Sort installed packages by decreasing installed size. Useful for system clean-up.
+
+for package in $(pacman -Qq); do
+      echo $(pacman -Qi $package |grep 'Installed Size' |awk '{print $4 " " $5}') : $package
+done |sort -g -r

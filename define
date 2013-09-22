@@ -1,0 +1,8 @@
+#! /bin/bash
+# grabs a definition from dict.org and lesses it
+if [ $# = 2 ] && [ $1 = "cs" ]
+then
+  DB="foldoc"
+ #echo $DB
+fi
+curl -s dict://dict.org/d:$2:$DB | less;

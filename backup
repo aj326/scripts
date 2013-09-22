@@ -1,0 +1,8 @@
+#!/bin/sh
+# backs up system to $1
+START=$(date +%s)
+rsync -aAXv /* $1 --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/home/*/.gvfs,/var/lib/pacman/sync/*,/home/*/.thumbnails/*,/home/*/.mozilla/firefox/*.default/Cache/*}
+FINISH=$(date +%s)
+echo "total time: $(( ($FINISH-$START) / 60 )) minutes, $(( ($FINISH-$START) % 60 )) seconds"
+
+touch $1/"Backup from $(date '+%A, %d %B %Y, %T')"

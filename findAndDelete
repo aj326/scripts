@@ -1,0 +1,9 @@
+#!/bin/sh
+# deletes files ending with $1
+if [[ "$1" != "" ]]
+then
+  find . -type f -name "*$1" -print0 | xargs -0 rm
+else
+  echo "no extension to match and delete"
+fi
+  
